@@ -53,6 +53,12 @@ NS -
   * Would like pihole or some sort of adblock
   * would also like centralized certbot that sends wildcard certs to other ct's
 
+Docker -
+
+  * portainer for managment
+  * will add bitwarden
+  * certbot for idrac
+
 Minecraft - 
 
   * running paper MC for increased performance
