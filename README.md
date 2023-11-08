@@ -57,6 +57,7 @@ Bitwarden -
 
   * Docker
      * vaultwarden - bitwarden_rs (alternative docker container for self hosted bitwarden)
+  * certbot for vaultwarden web portal
 
 Docker -
   * Docker
