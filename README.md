@@ -34,8 +34,8 @@ VPN -
 
   * PIVPN using wireguard for remote access and managment
   * cloudflare-ddns-updater
-  * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflarevpn2 (vpn A)
-  * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflareddns2 (proxied A)
+    * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflarevpn2 (vpn A)
+    * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflareddns2 (proxied A)
 
 WWW - 
 
@@ -53,16 +53,19 @@ NS -
   * Would like pihole or some sort of adblock
   * would also like centralized certbot that sends wildcard certs to other ct's
 
-Docker -
+Bitwarden -
 
-  * portainer for managment
-  * will add bitwarden
-  * certbot for idrac
+  * Docker
+     * vaultwarden - bitwarden_rs (alternative docker container for self hosted bitwarden)
+
+Docker -
+  * Docker
+    * portainer for managment
 
 Minecraft - 
 
   * running paper MC for increased performance
-  * cron: @reboot cd /root/minecraft && java -Xms4G -Xmx8G -jar paper-x.xxx.x-xxx.jar --nogui
+    * cron: @reboot cd /root/minecraft && java -Xms4G -Xmx8G -jar paper-x.xxx.x-xxx.jar --nogui
 
 C2 - 
 
