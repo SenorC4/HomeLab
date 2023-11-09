@@ -30,47 +30,47 @@ pve-nag-buster: package that disables the paid version pop-up for proxmox
 
 All of my CT's are running Debian 12 with the unnatended-upgrades package installed
 
-VPN - 
+VPN.lukelecain.com - 
 
-  * PIVPN using wireguard for remote access and managment
+  * [PIVPN](https://www.pivpn.io/) using wireguard for remote access and managment
   * cloudflare-ddns-updater
     * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflarevpn2 (vpn A)
     * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflareddns2 (proxied A)
 
-WWW - 
+WWW.lukelecain.com - 
 
   * www.lukelecain.com on nginx
   * Certbot for external www
     
-Nessus - 
+Nessus.lukelecain.com - 
 
   * Nessus essentials (runs every wedneday on all containers and VM's)
   * Certbot for local web interface
 
-NS - 
+NS.lukelecain.com - 
 
   * Bind9 for local lukelecain.com use
   * Would like pihole or some sort of adblock
   * would also like centralized certbot that sends wildcard certs to other ct's
 
-Bitwarden -
+Bitwarden.lukelecain.com -
 
   * Docker
-     * vaultwarden - bitwarden_rs (alternative docker container for self hosted bitwarden)
+     * [vaultwarden](https://github.com/dani-garcia/vaultwarden) - bitwarden_rs (alternative docker container for self hosted bitwarden)
   * certbot for vaultwarden web portal
 
-Docker -
+Docker.lukelecain.com -
   * Docker
-    * portainer for managment
+    * [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) for managment
 
-Minecraft - 
+Mine.lukelecain.com - 
 
-  * running paper MC for increased performance
+  * running [paper MC](https://papermc.io/downloads/paper) for increased performance
     * cron: @reboot cd /root/minecraft && java -Xms4G -Xmx8G -jar paper-x.xxx.x-xxx.jar --nogui
 
-C2 - 
+C2.lukelecain.com - 
 
-  * Command and Control server for Hak5 Wifi-Pineapple
+  * Command and Control server for [Hak5](https://docs.hak5.org/cloud-c2/) Wifi-Pineapple
   * Not finished
 
 ## VM's
