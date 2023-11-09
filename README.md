@@ -63,6 +63,10 @@ Docker.lukelecain.com -
   * Docker
     * [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) for managment
 
+pihole.lukelecain.com -
+  * pihole
+  * certbot for web interface
+
 Mine.lukelecain.com - 
 
   * running [paper MC](https://papermc.io/downloads/paper) for increased performance
