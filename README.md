@@ -33,9 +33,6 @@ All of my CT's are running Debian 12 with the unnatended-upgrades package instal
 VPN.lukelecain.com - 
 
   * [PIVPN](https://www.pivpn.io/) using wireguard for remote access and managment
-  * cloudflare-ddns-updater
-    * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflarevpn2 (vpn A)
-    * cron: */10 * * * * /home/luke/cloudflare-ddns-updater/cloudflareddns2 (proxied A)
 
 WWW.lukelecain.com - 
 
@@ -45,13 +42,12 @@ WWW.lukelecain.com -
 Nessus.lukelecain.com - 
 
   * Nessus essentials (runs every wedneday on all containers and VM's)
+  * cp fullchain.pem /opt/nessus/com/nessus/CA/servercert.pem cp privkey.pem /opt/nessus/var/nessus/CA/serverkey.pem
   * Certbot for local web interface
 
 NS.lukelecain.com - 
 
-  * Bind9 for local lukelecain.com use
-  * Would like pihole or some sort of adblock
-  * would also like centralized certbot that sends wildcard certs to other ct's
+  * pihole
 
 Bitwarden.lukelecain.com -
 
@@ -68,10 +64,7 @@ Home.lukelecain.com -
 Docker.lukelecain.com -
   * Docker
     * [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) for managment
-
-pihole.lukelecain.com -
-  * pihole
-  * certbot for web interface
+    * [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns) for DDNS
 
 Mine.lukelecain.com - 
 
