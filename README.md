@@ -57,6 +57,7 @@ Bitwarden.lukelecain.com -
 
   * Docker
      * [vaultwarden](https://github.com/dani-garcia/vaultwarden) - bitwarden_rs (alternative docker container for self hosted bitwarden)
+     * sudo docker run -d --name bitwarden -e ROCKET_TLS='{certs="/ssl/live/bitwarden.lukelecain.com/fullchain.pem",key="/ssl/live/bitwarden.lukelecain.com/privkey.pem"}' -v /etc/letsencrypt/:/ssl/ -v /vw-data/:/data/ -p 443:80 vaultwarden/server:latest
   * certbot for vaultwarden web portal
 
 Home.lukelecain.com - 
