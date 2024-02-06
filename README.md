@@ -13,6 +13,18 @@ RAM: 128GB DDR4
 
 Drives: 3 x 500gb Samsung 860 EVO + 2 x 2TB Samsung 870 QVO
 
+Pi1:
+
+Raspiberry Pi 3B
+
+Pi2:
+
+Raspiberry Pi 3B
+
+## Pi's
+
+The Pi's run my main pivpn and pihole and are configured the same as the CT's below
+
 ## Proxmox
 The Hypervisor that runs it all
 
@@ -22,13 +34,14 @@ On hypervisor I have:
 
 ACME: ssl cert for the web interface using proxmox's built in certbot functionality
 
-ZFS pool: (rpool) of the 5 drives listed earlier in raid0? (this neeeds to change)
+ZFS pool: (prmoxox) 2 x 2TB Samsung 870 QVO raid1
+          (storage) 3 x 500gb Samsung 860 EVO in raidz1
 
 pve-nag-buster: package that disables the paid version pop-up for proxmox
 
 ## CT's
 
-All of my CT's are running Debian 12 with the unnatended-upgrades package installed
+All of my CT's are running Debian 12 with the unnatended-upgrades package installed except for vpn which is running debian 11
 
 VPN.lukelecain.com - 
 
@@ -65,6 +78,7 @@ Docker.lukelecain.com -
   * Docker
     * [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) for managment
     * [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns) for DDNS
+    * [JellyFin](https://jellyfin.org/) for local media streaming
 
 Mine.lukelecain.com - 
 
