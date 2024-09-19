@@ -4,7 +4,7 @@
 echo "Installing sudo..."
 apt update && apt upgrade -y && apt install sudo curl wget unattended-upgrades -y
 
-# Create a new user 'lukel' with the password 'Lukejoshua13'
+# Create a new user
 username=""
 password=""
 echo "Creating user $username..."
