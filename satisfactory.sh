@@ -7,10 +7,7 @@ sudo apt install steamcmd
 mkdir server
 steamcmd +@sSteamCmdForcePlatformType linux +force_install_dir /home/steam/server +login anonymous +app_update 1690800 +quit
 exit
-sudo nano /etc/systemd/system/satisfactoryserver.service 
-
-'''
-  [Unit]
+sudo echo "[Unit]
   Description=Satisfactory Dedicated Server
   Wants=network-online.target
   After=network-online.target
@@ -34,8 +31,7 @@ sudo nano /etc/systemd/system/satisfactoryserver.service
       -multihome=0.0.0.0
   
   [Install]
-  WantedBy=multi-user.target
-'''
+  WantedBy=multi-user.target" > /etc/systemd/system/satisfactoryserver.service 
 
 sudo systemctl enable satisfactoryserver
 sudo systemctl start satisfactoryserver
