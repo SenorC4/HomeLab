@@ -3,7 +3,7 @@ A description of my self hosted applications and network for my own use for when
 
 ## Hardware
 
-PV0:
+PVE:
 
 Platform: Dell r430
 
@@ -13,17 +13,37 @@ RAM: 128GB DDR4
 
 Drives: 3 x 500gb Samsung 860 EVO + 2 x 2TB Samsung 870 QVO
 
+PVE1:
+
+Platform: HP dl360 G9
+
+CPU: 2 x E5-2690V4 @ 2.60 GHz (56 threads total)
+
+RAM: 128GB DDR4
+
+Drives: 2 x 1Tb Samsung 970 EVO + 2 x 2TB Samsung 970 EVO + 2 x 128GB 870 EVO
+
+PVE2: (NAS)
+
+Platform: Dell r330
+
+CPU: 2 x E5-2690V4 @ 2.60 GHz (56 threads total)
+
+RAM: 64GB DDR4
+
+Drives: 4 x 4Tb Seagate IronWolf Pro + 1 x 1TB Samsung 970 EVO
+
 Pi1:
 
-Raspiberry Pi 3B
+Raspiberry Pi 4
 
 Pi2:
 
-Raspiberry Pi 3B
+Raspiberry Pi 4
 
 ## Pi's
 
-The Pi's run my main pivpn and pihole and are configured the same as the CT's below
+The Pi's run my main pihole and are configured the same as the CT's below
 
 ## Proxmox
 The Hypervisor that runs it all
@@ -41,7 +61,7 @@ pve-nag-buster: package that disables the paid version pop-up for proxmox
 
 ## CT's
 
-All of my CT's are running Debian 12 with the unnatended-upgrades package installed except for vpn which is running debian 11
+All of my CT's are running Debian 12 with the unnatended-upgrades package installed
 
 VPN.lukelecain.com - 
 
@@ -57,10 +77,6 @@ Nessus.lukelecain.com -
   * Nessus essentials (runs every wedneday on all containers and VM's)
   * cp fullchain.pem /opt/nessus/com/nessus/CA/servercert.pem cp privkey.pem /opt/nessus/var/nessus/CA/serverkey.pem
   * Certbot for local web interface
-
-NS.lukelecain.com - 
-
-  * pihole
 
 Bitwarden.lukelecain.com -
 
