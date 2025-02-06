@@ -8,8 +8,9 @@ apt update && apt upgrade -y && apt install sudo curl wget unattended-upgrades -
 mkdir -m 700 ~/.ssh; curl https://github.com/SenorC4.keys >> ~/.ssh/authorized_keys
 
 # Create a new user
-username=""
-password=""
+read -p "Enter your new username: " username
+read -p "Enter your new password: " password
+
 echo "Creating user $username..."
 useradd -m -s /bin/bash $username
 
