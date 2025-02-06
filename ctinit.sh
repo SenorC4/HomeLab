@@ -4,6 +4,9 @@
 echo "Installing sudo..."
 apt update && apt upgrade -y && apt install sudo curl wget unattended-upgrades -y
 
+#curl ssh keys into root
+mkdir -m 700 ~/.ssh; curl https://github.com/SenorC4.keys >> ~/.ssh/authorized_keys
+
 # Create a new user
 username=""
 password=""
