@@ -1,5 +1,5 @@
 #!/bin/bash
-apt install cifs-utils
+apt install cifs-utils -y
 mkdir /mnt/media
 read -p "Enter your username: " username
 read -p "Enter your password: " password
