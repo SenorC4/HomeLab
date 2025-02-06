@@ -1,6 +1,9 @@
 # HomeLab
 A description of my self hosted applications and network for my own use for when it breaks and so that i can get feedback from others on best practices
 
+# Run Ctinit.sh
+bash -c "$(wget -qLO - https://raw.githubusercontent.com/SenorC4/HomeLab/refs/heads/main/ctinit.sh)"
+
 ## Hardware
 
 PVE:
