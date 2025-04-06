@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Fetching the HTML page with curl and extracting the relevant line with grep
-durl=$(curl -s --user-agent "user-agent-name-here" https://www.minecraft.net/en-us/download/server | grep server.jar)
+durl=$(curl -s --user-agent "Mozilla/5.0 (platform; rv:gecko-version) Gecko/gecko-trail Firefox/firefox-version" https://www.minecraft.net/en-us/download/server | grep server.jar)
 
 # Extracting the Minecraft version from the line
 minever=$(echo "$durl" | awk -F'[<>]' '{print $3}')
@@ -23,7 +23,7 @@ updated=false
 if [ -n "$local_file" ]; then
     # Compare versions
     if [ "$minever" == "$local_file" ]; then
-        echo "Local version ($localver) is up to date."
+        echo "Local version ($local_file) is up to date."
     else
         echo "Updating to new version ($minever)..."
         wget "$mineurl" -O "$minever"
@@ -33,8 +33,8 @@ if [ -n "$local_file" ]; then
 else
     # Download if no local version exists
     echo "No local version found. Downloading $minever..."
-    wget "$mineurl" -O "$minever"
-    cp "$minever" server.jar
+    wget "$mineurl" -O "server.jar"
+    cp server.jar "$minever"
     #kill and rerun minecraft
     updated=true
 fi
