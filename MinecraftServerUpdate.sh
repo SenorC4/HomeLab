@@ -26,6 +26,7 @@ if [ -n "$local_file" ]; then
         echo "Local version ($local_file) is up to date."
     else
         echo "Updating to new version ($minever)..."
+        rm *.jar
         wget "$mineurl" -O "$minever"
         cp "$minever" server.jar
         updated=true
@@ -33,6 +34,7 @@ if [ -n "$local_file" ]; then
 else
     # Download if no local version exists
     echo "No local version found. Downloading $minever..."
+    rm *.jar
     wget "$mineurl" -O "server.jar"
     cp server.jar "$minever"
     #kill and rerun minecraft
