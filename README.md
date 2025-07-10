@@ -13,17 +13,17 @@ bash -c "$(wget -qLO - https://raw.githubusercontent.com/SenorC4/HomeLab/refs/he
 
 ## Hardware
 
-PVE:
-
-Platform: Dell r430
-
-CPU: 2 x E5-2690V4 @ 2.60 GHz (56 threads total)
-
-RAM: 128GB DDR4
-
-Drives: 3 x 500gb Samsung 860 EVO + 2 x 2TB Samsung 870 QVO
-
 PVE1:
+
+Platform: Minisforum MS-01
+
+CPU: i9-13900k
+
+RAM: 96GB DDR4
+
+Drives: 1 x 1.6TB Micron 7300 + 2 x 1TB Samsung 970 EVO
+
+PVE2:
 
 Platform: HP dl360 G9
 
@@ -31,9 +31,9 @@ CPU: 2 x E5-2690V4 @ 2.60 GHz (56 threads total)
 
 RAM: 128GB DDR4
 
-Drives: 2 x 1Tb Samsung 970 EVO + 2 x 2TB Samsung 970 EVO + 2 x 128GB 870 EVO
+Drives: 1 x 800GB Intel enterprise drive + 2 x 2TB Samsung 870 EVO + 2 x 2TB 870 QVO
 
-PVE2: (NAS)
+nas:
 
 Platform: Dell r330
 
@@ -55,6 +55,14 @@ Raspiberry Pi 4
 
 The Pi's run my main pihole and are configured the same as the CT's below
 
+ns.lukelecain.com - 
+  * qdevice for quorum for proxmox cluster
+  * pi-hole
+
+ns1.lukelecain.com - 
+  * nut for UPS shutdown and stats
+  * pi-hole
+
 ## Proxmox
 The Hypervisor that runs it all
 
@@ -64,8 +72,8 @@ On hypervisor I have:
 
 ACME: ssl cert for the web interface using proxmox's built in certbot functionality
 
-ZFS pool: (prmoxox) 2 x 2TB Samsung 870 QVO raid1
-          (storage) 3 x 500gb Samsung 860 EVO in raidz1
+ZFS pool: (local-zfs) the 1.6TB and the 600GB are the boot/local-zfs for each node respectively
+          (storage) 2 x 2TB Samsung 870 EVO in raid0
 
 pve-nag-buster: package that disables the paid version pop-up for proxmox
 
@@ -73,14 +81,10 @@ pve-nag-buster: package that disables the paid version pop-up for proxmox
 
 All of my CT's are running Debian 12 with the unnatended-upgrades package installed
 
-VPN.lukelecain.com - 
+caddy.lukelecain.com - 
 
-  * [PIVPN](https://www.pivpn.io/) using wireguard for remote access and managment
-
-WWW.lukelecain.com - 
-
-  * www.lukelecain.com on nginx
-  * Certbot for external www
+  * www.lukelecain.com on caddy
+  * *.srv.lukelecain.com runs reverse proxy for all of my internal sites for easier ssl
     
 Nessus.lukelecain.com - 
 
@@ -95,32 +99,33 @@ Bitwarden.lukelecain.com -
      * sudo docker run -d --name bitwarden -e ROCKET_TLS='{certs="/ssl/live/bitwarden.lukelecain.com/fullchain.pem",key="/ssl/live/bitwarden.lukelecain.com/privkey.pem"}' -v /etc/letsencrypt/:/ssl/ -v /vw-data/:/data/ -p 443:80 vaultwarden/server:latest
   * certbot for vaultwarden web portal
 
-Home.lukelecain.com - 
-  
-  * [Homepage](https://github.com/gethomepage/homepage)
-  * A dashboard for monitoring and accessing all of my services
-
 Docker.lukelecain.com -
   * Docker
     * [portainer](https://docs.portainer.io/start/install-ce/server/docker/linux) for managment
     * [cloudflare-ddns](https://github.com/timothymiller/cloudflare-ddns) for DDNS
     * [JellyFin](https://jellyfin.org/) for local media streaming
+    * [netalertx]
+    * [ctfd]
+    * [flaresolverr]
+    * [homebridge]
+    * [prowlarr]
 
 Mine.lukelecain.com - 
 
   * running [paper MC](https://papermc.io/downloads/paper) for increased performance
     * cron: @reboot cd /root/minecraft && java -Xms4G -Xmx8G -jar paper-x.xxx.x-xxx.jar --nogui
 
-C2.lukelecain.com - 
+Authentik
 
-  * Command and Control server for [Hak5](https://docs.hak5.org/cloud-c2/) Wifi-Pineapple
-  * Not finished
+cloudflared
+
+radarr
+
+sonarr
 
 ## VM's
 
 Kali - my main kali box for HackTheBox/internal testing
-
-Kali Purple - why not?
 
 Metasploitable2 - a linux vm purpose-built to be exploited by the tool Metasploit
 
@@ -128,9 +133,13 @@ Metasploitable3-Ubuntu - The newest verison of metasploitble
 
 Metasploitable3-Win2k8 - A windows version of metasploitable
 
-DC-01 - A windows server 2022 that I have as a Domain controller for luke.lab (mostly for Active directory testing)
+qbit - qbittorent and private internet access
 
-Windows 11 - Utility VM that I use as a secondary workstation 
+Siem - Security Onion ingesting from a mirror port on my core switch and ingesting host logs through elastic agents
+
+Media - Running Jellyfin, metube, and handbrake
+
+HomeAssistant - HomeAssitant
 
 
 
