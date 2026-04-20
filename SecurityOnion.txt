@@ -1,0 +1,6 @@
+sudo dnf install qemu-guest-agent tmux
+sudo soup
+install pki for ssh and change to no password auth and no root auth
+soup cron job
+config change: ja4plus, firewall rules, deafult cert, pcap storage
+configure certbot: https://gist.github.com/l00ps/5753fa7fe55f6757fcc088506637a13e
